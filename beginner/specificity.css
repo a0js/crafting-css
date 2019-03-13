@@ -1,0 +1,231 @@
+/* EXAMPLES FROM THE SLIDE */
+
+div table tbody tr td {
+    background-color:green;
+}
+
+.specificity-table-body td {
+    background-color:white;
+    color:red;
+}
+
+#specificity-example-table td {
+    color:black;
+}
+
+/* CSS to make the slide work and look good */
+
+#cascade-rules-specificity input {
+    visibility: hidden;
+    position: absolute;
+}
+
+#cascade-rules-specificity table {
+    font-size: 0.7rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+    line-height: 0.8rem;
+}
+
+#cascade-rules-specificity td, #cascade-rules-specificity th {
+    border-top:1px solid #000;
+    padding:5px 8px;
+    position: relative;
+}
+
+#cascade-rules-specificity th {
+    font-weight: bold;
+    color: white;
+    background: #000;
+}
+
+#cascade-rules-specificity th:first-child {
+    width:25%;
+}
+
+#cascade-rules-specificity td:after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform:translateY(-50%);
+}
+
+#cascade-rules-specificity td:nth-child(2), #cascade-rules-specificity td:nth-child(3) {
+    text-align: center;
+}
+
+#cascade-rules-specificity td:last-child {
+    text-align: right;
+}
+
+#cascade-rules-specificity tr:not(:last-child) td:nth-child(2):after {
+    content:'\00d7';
+}
+
+#cascade-rules-specificity td:nth-child(3):after {
+    content:'=';
+}
+
+#specificity-example-1:checked ~ div #example-thousands:before {
+    content:'none'
+}
+
+#specificity-example-1:checked ~ div output[name="thousands"]:before {
+    content:'0'
+}
+
+#specificity-example-1:checked ~ div #example-hundreds:before {
+    content:'none'
+}
+
+#specificity-example-1:checked ~ div output[name="hundreds"]:before {
+    content:'0'
+}
+
+#specificity-example-1:checked ~ div #example-tens:before {
+    content:'none'
+}
+
+#specificity-example-1:checked ~ div output[name="tens"]:before {
+    content:'0'
+}
+
+#specificity-example-1:checked ~ div #example-ones:before {
+    content:'div, table, tbody, tr, td (5)'
+}
+
+#specificity-example-1:checked ~ div output[name="ones"]:before {
+    content:'5'
+}
+
+#specificity-example-1:checked ~ div output[name="total"]:before {
+    content:'5'
+}
+
+#specificity-example-2:checked ~ div #example-thousands:before {
+    content:'none'
+}
+
+#specificity-example-2:checked ~ div output[name="thousands"]:before {
+    content:'0'
+}
+
+#specificity-example-2:checked ~ div #example-hundreds:before {
+    content:'none'
+}
+
+#specificity-example-2:checked ~ div output[name="hundreds"]:before {
+    content:'0'
+}
+
+#specificity-example-2:checked ~ div #example-tens:before {
+    content:'.specificity-table-body (1)'
+}
+
+#specificity-example-2:checked ~ div output[name="tens"]:before {
+    content:'10'
+}
+
+#specificity-example-2:checked ~ div #example-ones:before {
+    content:'td (1)'
+}
+
+#specificity-example-2:checked ~ div output[name="ones"]:before {
+    content:'1'
+}
+
+#specificity-example-2:checked ~ div output[name="total"]:before {
+    content:'11'
+}
+
+#specificity-example-3:checked ~ div #example-thousands:before {
+    content:'none'
+}
+
+#specificity-example-3:checked ~ div output[name="thousands"]:before {
+    content:'0'
+}
+
+#specificity-example-3:checked ~ div #example-hundreds:before {
+    content:'#specificity-example-table (1)'
+}
+
+#specificity-example-3:checked ~ div output[name="hundreds"]:before {
+    content:'100'
+}
+
+#specificity-example-3:checked ~ div #example-tens:before {
+    content:'none'
+}
+
+#specificity-example-3:checked ~ div output[name="tens"]:before {
+    content:'0'
+}
+
+#specificity-example-3:checked ~ div #example-ones:before {
+    content:'td (1)'
+}
+
+#specificity-example-3:checked ~ div output[name="ones"]:before {
+    content:'1'
+}
+
+#specificity-example-3:checked ~ div output[name="total"]:before {
+    content:'101'
+}
+
+#specificity-example-4:checked ~ div #example-thousands:before {
+    content:'<td style="color:white; background-color:black"> (1)'
+}
+
+#specificity-example-4:checked ~ div output[name="thousands"]:before {
+    content:'1000'
+}
+
+#specificity-example-4:checked ~ div #example-hundreds:before {
+    content:'none'
+}
+
+#specificity-example-4:checked ~ div output[name="hundreds"]:before {
+    content:'0'
+}
+
+#specificity-example-4:checked ~ div #example-tens:before {
+    content:'none'
+}
+
+#specificity-example-4:checked ~ div output[name="tens"]:before {
+    content:'0'
+}
+
+#specificity-example-4:checked ~ div #example-ones:before {
+    content:'none'
+}
+
+#specificity-example-4:checked ~ div output[name="ones"]:before {
+    content:'0'
+}
+
+#specificity-example-4:checked ~ div output[name="total"]:before {
+    content:'1000'
+}
+
+#specificity-example-1:checked ~ .specificity-buttons label:nth-child(2) pre code,
+#specificity-example-2:checked ~ .specificity-buttons label:nth-child(3) pre code,
+#specificity-example-3:checked ~ .specificity-buttons label:nth-child(4) pre code,
+#specificity-example-4:checked ~ .specificity-buttons label:nth-child(5) pre code {
+    outline: 2px solid rgb(0, 98, 209);
+}
+
+.specificity-buttons {
+    display: flex;
+    font-size: 0.6rem;
+    flex-direction: column;
+    align-items: center;
+    padding:1vw;
+}
+
+.specificity-buttons pre {
+    margin:1vw 0px;
+    cursor: pointer;
+}

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+section, main, nav, body, h1, h2, h3, h4, h5, h6 {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size:2vw;
+    line-height: 1.2em;
+}
+
+body {
+    overflow: hidden;
+    position: relative;
+}
+
+main {
+    height: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    transition: 0.8s;
+}
+
+nav {
+    position: fixed;
+    bottom:0;
+    width:100%;
+    padding: 10px 30%;
+    text-align: center;
+    z-index: 1;
+    font-size: 15px;
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+    flex-wrap: wrap;
+}
+
+nav > a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    transition: 0.3s;
+    color: #000;
+    margin: 5px;
+    pointer-events: auto;
+}
+
+nav > a:visited {
+    color: #000;
+}
+
+nav > a + a {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+nav > a:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.prevNext {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    height: 0;
+}
+
+.prevNext > div + div {
+    visibility: hidden;
+}
+
+.prevNext > div > a {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    opacity: 0.7;
+    text-align: center;
+    transition: 0.3s;
+    left:0;
+    z-index: 2;
+    background-image: url(arrow.png);
+    background-size: cover;
+    transform: rotate(180deg);
+    filter: invert(1);
+}
+
+.prevNext > div > a:hover {
+    opacity: 1;
+}
+
+.prevNext > div > a[href=""] {
+    visibility: hidden;
+}
+
+.prevNext > div > a + a {
+    left: auto;
+    transform: rotate(0deg);
+    right: 0;
+}
+
+main > section {
+    width: 100%;
+    height: 100%;
+    background: rgb(236,111,41);
+    background: linear-gradient(156deg, rgba(236,111,41,1) 0%, rgba(167,13,157,1) 40%, rgba(255,0,101,1) 100%);
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    font-size: 1rem;
+    white-space: normal;
+    overflow-y: auto;
+}
+
+main > section:nth-child(2n) {
+    background: rgb(154,41,236);
+    background: linear-gradient(156deg, rgba(154,41,236,1) 0%, rgba(10,63,163,1) 40%, rgba(0,226,255,1) 100%);
+}
+
+main > section > div.slide-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+main > section > div.slide-content > section {
+    width: 30%;
+    margin: 20px 0px;
+}
+
+main > section > div.slide-content > section > ul {
+    background: rgba(0,0,0,0.3);
+}
+
+main > section.slide-layout-title > h1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size:2rem;
+    line-height: 2rem;
+}
+
+h1, h2, h3 {
+    text-transform: capitalize;
+}
+
+main > section > h1 > small {
+    display: block;
+    font-size: 0.6em;
+}
+
+code {
+    background-color: rgba(0,0,0,0.8);
+    color: rgba(255, 255, 255, 0.9);
+    padding:3px 6px;
+    display: inline-block;
+    border-radius: 3px;
+    line-height: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+li {
+    margin: 0.8rem 0px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* SLIDESHOW MAGIC CSS */
+/* Borrowed from https://codepen.io/rokobuljan/pen/XXzqKQ */
+
+/* NAVIGATION BUTTONS */
+/* ALL: */
+s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
+/* ACTIVE */
+#s1:target ~ nav > *:nth-child(1) {background: rgba(255, 255, 255,   1);}
+#s2:target ~ nav > *:nth-child(2) {background: rgba(255, 255, 255,   1);}
+#s3:target ~ nav > *:nth-child(3) {background: rgba(255, 255, 255,   1);}
+#s4:target ~ nav > *:nth-child(4) {background: rgba(255, 255, 255,   1);}
+#s5:target ~ nav > *:nth-child(5) {background: rgba(255, 255, 255,   1);}
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target ~ main {transform: translateX(   0%);}
+#s2:target ~ main {transform: translateX(-100%);}
+#s3:target ~ main {transform: translateX(-200%);}
+#s4:target ~ main {transform: translateX(-300%);}
+#s5:target ~ main {transform: translateX(-400%);}
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+s:target ~ .prevNext > * {visibility: hidden;}
+/* ACTIVE: */
+#s1:target ~ .prevNext > *:nth-child(1) {visibility: visible;}
+#s2:target ~ .prevNext > *:nth-child(2) {visibility: visible;}
+#s3:target ~ .prevNext > *:nth-child(3) {visibility: visible;}
+#s4:target ~ .prevNext > *:nth-child(4) {visibility: visible;}
+#s5:target ~ .prevNext > *:nth-child(5) {visibility: visible;}

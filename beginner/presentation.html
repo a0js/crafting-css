@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="box-model.css">
+    <link rel="stylesheet" type="text/css" href="specificity.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <s id="s1"></s>
+    <s id="s2"></s>
+    <s id="s3"></s>
+    <s id="s4"></s>
+    <s id="s5"></s>
+
+    <nav>
+        <a href="#s1">1</a>
+        <a href="#s2">2</a>
+        <a href="#s3">3</a>
+        <a href="#s4">4</a>
+        <a href="#s5">5</a>
+    </nav>
+
+    <div class="prevNext">
+        <div>
+            <a href=""></a><a href="#s2"></a>
+        </div>
+        <div>
+            <a href="#s1"></a><a href="#s3"></a>
+        </div>
+        <div>
+            <a href="#s2"></a><a href="#s4"></a>
+        </div>
+        <div>
+            <a href="#s3"></a><a href="#s5"></a>
+        </div>
+        <div>
+            <a href="#s4"></a><a href="#s6"></a>
+        </div>
+    </div>
+
+    <main>
+        <section id="title" class="slide-layout-title">
+            <h1>crafting with CSS<small>a beginners guide</small></h1>
+        </section>
+        <section id="familiar-tags">
+            <h2>HTML primer: familiar tags</h2>
+            <div class="slide-content">
+                <section>
+                    <h3>block elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">
+                                <code>&lt;div&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank"
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">
+                                <code>&lt;h1&gt;&hellip;&lt;h6&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">
+                                <code>&lt;p&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>inline elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span">
+                                <code>&lt;span&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">
+                                <code>&lt;a&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/image">
+                                <code>&lt;image&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b">
+                                <code>&lt;b&gt;</code>
+                            </a> or symantically
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">
+                                <code>&lt;strong&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i">
+                                <code>&lt;i&gt;</code>
+                            </a> or symantically
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">
+                                <code>&lt;em&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>other elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">
+                                <code>&lt;ul&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">
+                                <code>&lt;ol&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl">
+                                <code>&lt;dl&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li">
+                                <code>&lt;li&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt">
+                                <code>&lt;dt&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd">
+                                <code>&lt;dd&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">
+                                <code>&lt;table&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr">
+                                <code>&lt;tr&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td">
+                                <code>&lt;td&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th">
+                                <code>&lt;th&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">
+                                <code>&lt;form&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">
+                                <code>&lt;input&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">
+                                <code>&lt;input&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">
+                                <code>&lt;option&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">
+                                <code>&lt;label&gt;</code>
+                            </a>,
+                            <a target="_blank"
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea">
+                                <code>&lt;textarea&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">
+                                <code>&lt;button&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br">
+                                <code>&lt;br&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr">
+                                <code>&lt;hr&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+        <section id="additional-tags">
+            <h2>HTML primer: additional tags</h2>
+            <div class="slide-content">
+                <section>
+                    <h3>block elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">
+                                <code>&lt;section&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">
+                                <code>&lt;article&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">
+                                <code>&lt;main&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">
+                                <code>&lt;aside&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">
+                                <code>&lt;nav&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">
+                                <code>&lt;header&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">
+                                <code>&lt;footer&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre">
+                                <code>&lt;pre&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address">
+                                <code>&lt;address&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address">
+                                <code>&lt;blockquote&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>inline elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code">
+                                <code>&lt;code&gt;</code>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark">
+                                <code>&lt;mark&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+                                <code>&lt;q&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp">
+                                <code>&lt;samp&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small">
+                                <code>&lt;small&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var">
+                                <code>&lt;var&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub">
+                                <code>&lt;sub&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup">
+                                <code>&lt;sup&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s">
+                                <code>&lt;s&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del">
+                                <code>&lt;del&gt;</code>
+                            </a>,
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins">
+                                <code>&lt;ins&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>other elements</h3>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output">
+                                <code>&lt;output&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter">
+                                <code>&lt;meter&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank"
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress">
+                                <code>&lt;progress&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">
+                                <code>&lt;time&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">
+                                <code>&lt;audio&gt;</code>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">
+                                <code>&lt;video&gt;</code>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <p class="center">Moral of the Story: Pick the right element for your content!</p>
+        </section>
+        <section id="box-model">
+            <h2>the box model</h2>
+            <div class="slide-content">
+                <div class="explanation">
+                    <ul>
+                        <li>Width and height are set on the content.</li>
+                        <li>Padding is the space between the content and the border.</li>
+                        <li>Margin is the space between the border and external content.</li>
+                        <li>Notice margins collapse for vertically stacked elements.</li>
+                        <li>
+                            When <code>box-sizing: border-box;</code> you'll notice the width
+                            and height set for the element now include padding and border
+                            rather than just the content.
+                        </li>
+                        <li>
+                            <code>outline:</code> is generally used to indicate focus and does not affect
+                            the size of the element. To hide a focus outline on an already styled attribute,
+                            you can put <code>outline:none;</code>.
+                        </li>
+                    </ul>
+                </div>
+                <div class="illustration">
+                    <input type="checkbox" id="animate-box-sizing" />
+                    <input type="checkbox" id="show-outline" />
+                    <div class="box-model-example">
+                        <div class="box-model-inner-div">
+                            Inspect Me!
+                        </div>
+                    </div>
+                    <div class="box-model-example">
+                        <div class="box-model-inner-div">
+                            box-sizing<br>content-box
+                        </div>
+                    </div>
+                    <div class="box-model-example border-boxed">
+                        <div class="box-model-inner-div">
+                            box-sizing<br>border-box
+                        </div>
+                    </div>
+                    <div class="box-model-buttons">
+                        <label class="toggle-button" id="animate-box-sizing-label" for="animate-box-sizing"></label>
+                        <label class="toggle-button" id="show-outline-label" for="show-outline"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="cascade-rules-specificity">
+            <h2>Cascading Rules: Specificity</h2>
+            <p>When multiple rules match, specificity score is calculated based on the composition of the selectors.</p>
+            <div class="slide-content">
+                <input type="radio" name="specificity-example" id="specificity-example-1">
+                <input type="radio" name="specificity-example" id="specificity-example-2">
+                <input type="radio" name="specificity-example" id="specificity-example-3">
+                <input type="radio" name="specificity-example" id="specificity-example-4">
+                <div class="explanation">
+                    <table id="specificity-example-table">
+                        <thead>
+                            <tr>
+                                <th>Selector Types</th>
+                                <th>Instances in Example</th>
+                                <th>Value per Instance</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="specificity-table-body">
+                            <tr>
+                                <td>Inline Style</td>
+                                <td id="example-thousands"></td>
+                                <td>1000</td>
+                                <td><output name="thousands"></output></td>
+                            </tr>
+                            <tr>
+                                <td>ID selectors</td>
+                                <td id="example-hundreds"></td>
+                                <td>100</td>
+                                <td><output name="hundreds"></output></td>
+                            </tr>
+                            <tr>
+                                <td>Class Selector, Attribute Selector, Pseudo-class Selector</td>
+                                <td id="example-tens"></td>
+                                <td>10</td>
+                                <td><output name="tens"></output></td>
+                            </tr>
+                            <tr>
+                                <td>Element Selector, Pseudo-element Selector</td>
+                                <td id="example-ones"></td>
+                                <td>1</td>
+                                <td><output name="ones"></output></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Total Specificity</td>
+                                <td style="color: white; background-color: black;"><output name="total"></output></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li>In the event of tied specificity, the rule that comes last wins.</li>
+                        <li>Adding <code>!important</code> to a declaration adds 10,000 to that specific property. It is like a sledge-hammer: effective, but messy. Only use when absolutely necessary.</li>
+                    </ul>
+                </div>
+                <div class="specificity-buttons">
+                    <h3>Click a rule to see it's score!</h3>
+                    <label for="specificity-example-1"><pre><code>div table tbody tr td {
+    background-color: green;
+}</code></pre></label>
+                    <label for="specificity-example-2"><pre><code>.specificity-table-body td {
+    background-color: white;
+    color: red;
+}</code></pre></label>
+                    <label for="specificity-example-3"><pre><code>#specificity-example-table td {
+    color: black;
+}</code></pre></label>
+                    <label for="specificity-example-4"><pre><code>&lt;td style="color: white;
+background-color: black;"&gt;</code></pre></label>
+                </div>
+            </div>
+            <p>Check out <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#Specificity">MDN</a> for more information about specificity.</p>
+        </section>
+    </main>
+</body>
+
+</html>
