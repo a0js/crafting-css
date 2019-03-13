@@ -148,13 +148,24 @@ main > section.slide-layout-title > h1{
     transform: translate(-50%, -50%);
     font-size:2rem;
     line-height: 2rem;
+    display:flex;
+    align-items: center;
+}
+
+main > section.slide-layout-title > h1 > * {
+    margin: 0 0.5vw;
+}
+
+main > section.slide-layout-title img {
+    width:10vw;
+    height:10vw;
 }
 
 h1, h2, h3 {
     text-transform: capitalize;
 }
 
-main > section > h1 > small {
+main > section > h1  small {
     display: block;
     font-size: 0.6em;
 }

@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Crafting CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="box-model.css">
     <link rel="stylesheet" type="text/css" href="specificity.css">
-    <script src="main.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
 
 <body>
@@ -47,7 +48,13 @@
 
     <main>
         <section id="title" class="slide-layout-title">
-            <h1>crafting with CSS<small>a beginners guide</small></h1>
+            <h1>
+                <img src="./icon-192x192.png" alt="crafting-css" />
+                <span>
+                    crafting with CSS
+                    <small>a beginners guide</small>
+                </span>
+            </h1>
         </section>
         <section id="familiar-tags">
             <h2>HTML primer: familiar tags</h2>
@@ -387,7 +394,7 @@
             </div>
         </section>
         <section id="cascade-rules-specificity">
-            <h2>Cascading Rules: Specificity</h2>
+            <h2>cascading rules: specificity</h2>
             <p>When multiple rules match, specificity score is calculated based on the composition of the selectors.</p>
             <div class="slide-content">
                 <input type="radio" name="specificity-example" id="specificity-example-1">
