@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,300');
 
 section, main, nav, body, h1, h2, h3, h4, h5, h6 {
     padding:0;
@@ -12,6 +12,10 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-size:2vw;
     line-height: 1.2em;
+}
+
+tt, code, kbd, samp {
+    font-family: 'Roboto Mono', monospace;
 }
 
 body {
@@ -53,6 +57,7 @@ nav > a {
     color: #000;
     margin: 5px;
     pointer-events: auto;
+    border-radius: 3px;
 }
 
 nav > a:visited {
@@ -65,6 +70,41 @@ nav > a + a {
 
 nav > a:hover {
     background: rgba(255, 255, 255, 0.7);
+}
+
+*[data-tooltip] {
+    position: relative;
+}
+
+*[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    display: inline-block;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform:translate(-50%);
+    z-index: 3;
+    white-space: nowrap;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 0.2em 1em;
+    border-radius: 0.3em;
+    /* box-shadow: 0 0 0.2em #000; */
+    text-transform: capitalize;
+}
+
+*[data-tooltip]:hover::after {
+	content: '';
+	position: absolute;
+	bottom: calc(100% + 6px);
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: rgba(0,0,0,0.8);
+	border-bottom: 0;
+	margin-left: -10px;
+	margin-bottom: -10px;
 }
 
 .prevNext {
@@ -129,12 +169,12 @@ main > section:nth-child(2n) {
 
 main > section > div.slide-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 main > section > div.slide-content > section {
-    width: 30%;
-    margin: 20px 0px;
+    margin: 2vw 1vw;
+    flex: 1;
 }
 
 main > section > div.slide-content > section > ul {
@@ -177,6 +217,7 @@ code {
     display: inline-block;
     border-radius: 3px;
     line-height: 1rem;
+    font-weight: lighter;
 }
 
 a {
@@ -189,7 +230,8 @@ ul {
 }
 
 li {
-    margin: 0.8rem 0px;
+    margin: 0.5rem 0px;
+    line-height: 1.4em;
 }
 
 .center {
@@ -208,6 +250,7 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s3:target ~ nav > *:nth-child(3) {background: rgba(255, 255, 255,   1);}
 #s4:target ~ nav > *:nth-child(4) {background: rgba(255, 255, 255,   1);}
 #s5:target ~ nav > *:nth-child(5) {background: rgba(255, 255, 255,   1);}
+#s6:target ~ nav > *:nth-child(6) {background: rgba(255, 255, 255,   1);}
 
 /* SLIDER ANIMATION POSITIONS */
 
@@ -216,6 +259,7 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s3:target ~ main {transform: translateX(-200%);}
 #s4:target ~ main {transform: translateX(-300%);}
 #s5:target ~ main {transform: translateX(-400%);}
+#s6:target ~ main {transform: translateX(-500%);}
 
 /* PREV/NEXT CONTAINERS VISIBILITY */
 /* ALL: */
@@ -226,3 +270,4 @@ s:target ~ .prevNext > * {visibility: hidden;}
 #s3:target ~ .prevNext > *:nth-child(3) {visibility: visible;}
 #s4:target ~ .prevNext > *:nth-child(4) {visibility: visible;}
 #s5:target ~ .prevNext > *:nth-child(5) {visibility: visible;}
+#s6:target ~ .prevNext > *:nth-child(6) {visibility: visible;}

@@ -1,0 +1,207 @@
+
+
+dt code {
+    background-color:transparent;
+    color: #000;
+    font-weight: normal;
+}
+
+dl {
+    font-size:0.8rem;
+    line-height: 1.3rem;
+}
+
+dd {
+    font-size:0.6rem;
+}
+#flexbox-example {
+    height: 20vw;
+    display: flex;
+    background-color: rgb(248, 198, 123);
+    padding: 1vw;
+    counter-reset: flexedboxes;
+    overflow:auto;
+}
+
+#flexbox-example div {
+    background-color: rgba(88, 184, 248, 0.6);
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+    border-radius: 1vw;
+    padding: 0.5vw;
+    font-family: 'Roboto Mono';
+}
+
+div#flexbox-example-child {
+    background-color: rgba(248, 88, 235, 0.6);
+}
+
+#flexbox-example div:nth-child(3n) {
+    line-height: 3em;
+}
+
+#flexbox-example div::before {
+    counter-increment: flexedboxes;
+    content: 'Box' counter(flexedboxes);
+}
+
+#flexbox input {
+    visibility: hidden;
+    position: absolute;
+}
+
+#align-items-stretch:checked ~ div.slide-content section label[for="align-items-stretch"] code,
+#align-items-flex-start:checked ~ div.slide-content section label[for="align-items-flex-start"] code,
+#align-items-center:checked ~ div.slide-content section label[for="align-items-center"] code,
+#align-items-flex-end:checked ~ div.slide-content section label[for="align-items-flex-end"] code,
+#align-items-baseline:checked ~ div.slide-content section label[for="align-items-baseline"] code,
+#justify-content-flex-start:checked ~ div.slide-content section label[for="justify-content-flex-start"] code,
+#justify-content-center:checked ~ div.slide-content section label[for="justify-content-center"] code,
+#justify-content-flex-end:checked ~ div.slide-content section label[for="justify-content-flex-end"] code,
+#justify-content-space-around:checked ~ div.slide-content section label[for="justify-content-space-around"] code,
+#justify-content-space-between:checked ~ div.slide-content section label[for="justify-content-space-between"] code,
+#justify-content-space-evenly:checked ~ div.slide-content section label[for="justify-content-space-evenly"] code,
+#align-content-stretch:checked ~ div.slide-content section label[for="align-content-stretch"] code,
+#align-content-flex-start:checked ~ div.slide-content section label[for="align-content-flex-start"] code,
+#align-content-center:checked ~ div.slide-content section label[for="align-content-center"] code,
+#align-content-flex-end:checked ~ div.slide-content section label[for="align-content-flex-end"] code,
+#align-content-space-around:checked ~ div.slide-content section label[for="align-content-space-around"] code,
+#align-content-space-between:checked ~ div.slide-content section label[for="align-content-space-between"] code,
+#order-zero:checked ~ div.slide-content section label[for="order-zero"] code,
+#order-negative-one:checked ~ div.slide-content section label[for="order-negative-one"] code,
+#order-two:checked ~ div.slide-content section label[for="order-two"] code,
+#order-ninety-nine:checked ~ div.slide-content section label[for="order-ninety-nine"] code,
+#flex-zero-one-auto:checked ~ div.slide-content section label[for="flex-zero-one-auto"] code,
+#flex-none:checked ~ div.slide-content section label[for="flex-none"] code,
+#flex-one:checked ~ div.slide-content section label[for="flex-one"] code,
+#flex-zero-one-twenty-percent:checked ~ div.slide-content section label[for="flex-zero-one-twenty-percent"] code,
+#align-self-auto:checked ~ div.slide-content section label[for="align-self-auto"] code,
+#align-self-flex-start:checked ~ div.slide-content section label[for="align-self-flex-start"] code,
+#align-self-center:checked ~ div.slide-content section label[for="align-self-center"] code,
+#align-self-stretch:checked ~ div.slide-content section label[for="align-self-stretch"] code,
+#align-self-flex-end:checked ~ div.slide-content section label[for="align-self-flex-end"] code,
+#align-self-baseline:checked ~ div.slide-content section label[for="align-self-baseline"] code,
+#flex-direction-row:checked ~ div.slide-content section label[for="flex-direction-row"] code,
+#flex-direction-row-reverse:checked ~ div.slide-content section label[for="flex-direction-row-reverse"] code,
+#flex-direction-column:checked ~ div.slide-content section label[for="flex-direction-column"] code,
+#flex-direction-column-reverse:checked ~ div.slide-content section label[for="flex-direction-column-reverse"] code,
+#flex-wrap-nowrap:checked ~ div.slide-content section label[for="flex-wrap-nowrap"] code,
+#flex-wrap-wrap:checked ~ div.slide-content section label[for="flex-wrap-wrap"] code,
+#flex-wrap-wrap-reverse:checked ~ div.slide-content section label[for="flex-wrap-wrap-reverse"] code {
+    background-color:rgb(0, 98, 209);
+}
+
+#align-items-stretch:checked ~ div#flexbox-example {
+    align-items: stretch;
+}
+#align-items-flex-start:checked ~ div#flexbox-example {
+    align-items: flex-start;
+}
+#align-items-center:checked ~ div#flexbox-example {
+    align-items: center;
+}
+#align-items-flex-end:checked ~ div#flexbox-example {
+    align-items: flex-end;
+}
+#align-items-baseline:checked ~ div#flexbox-example {
+    align-items: baseline;
+}
+#justify-content-flex-start:checked ~ div#flexbox-example {
+    justify-content: flex-start;
+}
+#justify-content-center:checked ~ div#flexbox-example {
+    justify-content: center;
+}
+#justify-content-flex-end:checked ~ div#flexbox-example {
+    justify-content: flex-end;
+}
+#justify-content-space-around:checked ~ div#flexbox-example {
+    justify-content: space-around;
+}
+#justify-content-space-between:checked ~ div#flexbox-example {
+    justify-content: space-between;
+}
+#justify-content-space-evenly:checked ~ div#flexbox-example {
+    justify-content: space-evenly;
+}
+#align-content-stretch:checked ~ div#flexbox-example {
+    align-content: stretch;
+}
+#align-content-flex-start:checked ~ div#flexbox-example {
+    align-content: flex-start;
+}
+#align-content-center:checked ~ div#flexbox-example {
+    align-content: center;
+}
+#align-content-flex-end:checked ~ div#flexbox-example {
+    align-content: flex-end;
+}
+#align-content-space-around:checked ~ div#flexbox-example {
+    align-content: space-around;
+}
+#align-content-space-between:checked ~ div#flexbox-example {
+    align-content: space-between;
+}
+#order-zero:checked ~ div#flexbox-example #flexbox-example-child {
+    order: 0;
+}
+#order-negative-one:checked ~ div#flexbox-example #flexbox-example-child {
+    order: -1;
+}
+#order-two:checked ~ div#flexbox-example #flexbox-example-child {
+    order: 2;
+}
+#order-ninety-nine:checked ~ div#flexbox-example #flexbox-example-child {
+    order: 99;
+}
+#flex-zero-one-auto:checked ~ div#flexbox-example #flexbox-example-child {
+    flex: 0 1 auto;
+}
+#flex-none:checked ~ div#flexbox-example #flexbox-example-child {
+    flex: none;
+}
+#flex-one:checked ~ div#flexbox-example #flexbox-example-child {
+    flex: 1;
+}
+#flex-zero-one-twenty-percent:checked ~ div#flexbox-example #flexbox-example-child {
+    flex: 0 1 20%;
+}
+#align-self-auto:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: auto;
+}
+#align-self-flex-start:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: flex-start;
+}
+#align-self-center:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: center;
+}
+#align-self-stretch:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: stretch;
+}
+#align-self-flex-end:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: flex-end;
+}
+#align-self-baseline:checked ~ div#flexbox-example #flexbox-example-child {
+    align-self: baseline;
+}
+#flex-wrap-nowrap:checked ~ div#flexbox-example {
+    flex-wrap: nowrap;
+}
+#flex-wrap-wrap:checked ~ div#flexbox-example {
+    flex-wrap: wrap;
+}
+#flex-wrap-wrap-reverse:checked ~ div#flexbox-example {
+    flex-wrap: wrap-reverse;
+}
+
+#flex-direction-row:checked ~ div#flexbox-example {
+    flex-direction: row;
+}
+#flex-direction-row-reverse:checked ~ div#flexbox-example {
+    flex-direction: row-reverse;
+}
+#flex-direction-column:checked ~ div#flexbox-example {
+    flex-direction: column;
+}
+#flex-direction-column-reverse:checked ~ div#flexbox-example {
+    flex-direction: column-reverse;
+}

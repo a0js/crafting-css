@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="box-model.css">
     <link rel="stylesheet" type="text/css" href="specificity.css">
+    <link rel="stylesheet" type="text/css" href="flexbox.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
@@ -19,13 +20,15 @@
     <s id="s3"></s>
     <s id="s4"></s>
     <s id="s5"></s>
+    <s id="s6"></s>
 
     <nav>
-        <a href="#s1">1</a>
-        <a href="#s2">2</a>
-        <a href="#s3">3</a>
-        <a href="#s4">4</a>
-        <a href="#s5">5</a>
+        <a href="#s1" data-tooltip="crafting with CSS"></a>
+        <a href="#s2" data-tooltip="HTML primer: familiar tags"></a>
+        <a href="#s3" data-tooltip="HTML primer: additional tags"></a>
+        <a href="#s4" data-tooltip="the box model"></a>
+        <a href="#s5" data-tooltip="cascading rules: specificity"></a>
+        <a href="#s6" data-tooltip="flexbox"></a>
     </nav>
 
     <div class="prevNext">
@@ -44,6 +47,9 @@
         <div>
             <a href="#s4"></a><a href="#s6"></a>
         </div>
+        <div>
+            <a href="#s5"></a><a href="#s7"></a>
+        </div>
     </div>
 
     <main>
@@ -52,7 +58,7 @@
                 <img src="./icon-192x192.png" alt="crafting-css" />
                 <span>
                     crafting with CSS
-                    <small>a beginner&rsquo;s guide</small>
+                    <small>a workbench showcase</small>
                 </span>
             </h1>
         </section>
@@ -397,7 +403,7 @@
             <h2>cascading rules: specificity</h2>
             <p>When multiple rules match, specificity score is calculated based on the composition of the selectors.</p>
             <div class="slide-content">
-                <input type="radio" name="specificity-example" id="specificity-example-1">
+                <input type="radio" name="specificity-example" id="specificity-example-1" checked>
                 <input type="radio" name="specificity-example" id="specificity-example-2">
                 <input type="radio" name="specificity-example" id="specificity-example-3">
                 <input type="radio" name="specificity-example" id="specificity-example-4">
@@ -464,6 +470,163 @@ background-color: black;"&gt;</code></pre></label>
                 </div>
             </div>
             <p>Check out <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#Specificity">MDN</a> for more information about specificity.</p>
+        </section>
+        <section id="flexbox">
+            <h2>flexbox</h2>
+            <input type="radio" name="align-items-example" id="align-items-stretch" checked>
+            <input type="radio" name="align-items-example" id="align-items-flex-start">
+            <input type="radio" name="align-items-example" id="align-items-center">
+            <input type="radio" name="align-items-example" id="align-items-flex-end">
+            <input type="radio" name="align-items-example" id="align-items-baseline">
+
+            <input type="radio" name="justify-content-example" id="justify-content-flex-start" checked>
+            <input type="radio" name="justify-content-example" id="justify-content-center">
+            <input type="radio" name="justify-content-example" id="justify-content-flex-end">
+            <input type="radio" name="justify-content-example" id="justify-content-space-around">
+            <input type="radio" name="justify-content-example" id="justify-content-space-between">
+            <input type="radio" name="justify-content-example" id="justify-content-space-evenly">
+
+            <input type="radio" name="flex-direction-example" id="flex-direction-row" checked>
+            <input type="radio" name="flex-direction-example" id="flex-direction-row-reverse">
+            <input type="radio" name="flex-direction-example" id="flex-direction-column">
+            <input type="radio" name="flex-direction-example" id="flex-direction-column-reverse">
+
+            <input type="radio" name="flex-wrap-example" id="flex-wrap-nowrap" checked>
+            <input type="radio" name="flex-wrap-example" id="flex-wrap-wrap">
+            <input type="radio" name="flex-wrap-example" id="flex-wrap-wrap-reverse">
+
+            <input type="radio" name="align-content-example" id="align-content-stretch" checked>
+            <input type="radio" name="align-content-example" id="align-content-flex-start">
+            <input type="radio" name="align-content-example" id="align-content-center">
+            <input type="radio" name="align-content-example" id="align-content-flex-end">
+            <input type="radio" name="align-content-example" id="align-content-space-around">
+            <input type="radio" name="align-content-example" id="align-content-space-between">
+
+            <input type="radio" name="order-example" id="order-zero" checked>
+            <input type="radio" name="order-example" id="order-negative-one">
+            <input type="radio" name="order-example" id="order-two">
+            <input type="radio" name="order-example" id="order-ninety-nine">
+
+            <input type="radio" name="flex-example" id="flex-zero-one-auto" checked>
+            <input type="radio" name="flex-example" id="flex-none">
+            <input type="radio" name="flex-example" id="flex-one">
+            <input type="radio" name="flex-example" id="flex-zero-one-twenty-percent">
+
+            <input type="radio" name="align-self-example" id="align-self-auto" checked>
+            <input type="radio" name="align-self-example" id="align-self-flex-start">
+            <input type="radio" name="align-self-example" id="align-self-center">
+            <input type="radio" name="align-self-example" id="align-self-stretch">
+            <input type="radio" name="align-self-example" id="align-self-flex-end">
+            <input type="radio" name="align-self-example" id="align-self-baseline">
+            <div class="slide-content">
+
+                <section>
+                    <h3>Controlling Flex from Parent</h3>
+                    <dl>
+                        <dt><code>align-items:</code></dt>
+                        <dd>
+                            <label for="align-items-stretch"><code>stretch</code></label>
+                            <label for="align-items-flex-start"><code>flex-start</code></label>
+                            <label for="align-items-center"><code>center</code></label>
+                            <label for="align-items-flex-end"><code>flex-end</code></label>
+                            <label for="align-items-baseline"><code>baseline</code></label>
+                        </dd>
+
+                        <dt><code>justify-content:</code></dt>
+                        <dd>
+                            <label for="justify-content-flex-start"><code>flex-start</code></label>
+                            <label for="justify-content-center"><code>center</code></label>
+                            <label for="justify-content-flex-end"><code>flex-end</code></label>
+                            <label for="justify-content-space-around"><code>space-around</code></label>
+                            <label for="justify-content-space-between"><code>space-between</code></label>
+                            <label for="justify-content-space-evenly"><code>space-evenly</code></label>
+                        </dd>
+
+                        <dt><code>flex-direction:</code></dt>
+                        <dd>
+                            <label for="flex-direction-row"><code>row</code></label>
+                            <label for="flex-direction-row-reverse"><code>row-reverse</code></label>
+                            <label for="flex-direction-column"><code>column</code></label>
+                            <label for="flex-direction-column-reverse"><code>column-reverse</code></label>
+                        </dd>
+
+                        <dt><code>flex-wrap:</code></dt>
+                        <dd>
+                            <label for="flex-wrap-nowrap"><code>nowrap</code></label>
+                            <label for="flex-wrap-wrap"><code>wrap</code></label>
+                            <label for="flex-wrap-wrap-reverse"><code>wrap-reverse</code></label>
+                        </dd>
+
+                        <dt><code>align-content:</code></dt>
+                        <dd>
+                            <label for="align-content-stretch"><code>stretch</code></label>
+                            <label for="align-content-flex-start"><code>flex-start</code></label>
+                            <label for="align-content-center"><code>center</code></label>
+                            <label for="align-content-flex-end"><code>flex-end</code></label>
+                            <label for="align-content-space-around"><code>space-around</code></label>
+                            <label for="align-content-space-between"><code>space-between</code></label>
+                        </dd>
+                    </dl>
+                </section>
+                <section>
+                    <h3>Controlling Flex from Child</h3>
+                    <dl>
+                        <dt><code>order:<em>&lt;integer&gt;</em></code></dt>
+                        <dd>
+                            <label for="order-zero"><code>0</code></label>
+                            <label for="order-negative-one"><code>-1</code></label>
+                            <label for="order-two"><code>2</code></label>
+                            <label for="order-ninety-nine"><code>99</code></label>
+                        </dd>
+
+                        <dt><code>flex:<em>&lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt;</em></code></dt>
+                        <dd>
+                            <label for="flex-zero-one-auto"><code>0 1 auto</code></label>
+                            <label for="flex-none"><code>none</code></label>
+                            <label for="flex-one"><code>1</code></label>
+                            <label for="flex-zero-one-twenty-percent"><code>0 1 20%</code></label>
+                        </dd>
+
+                        <dt><code>align-self:</code></dt>
+                        <dd>
+                            <label for="align-self-auto"><code>auto</code></label>
+                            <label for="align-self-flex-start"><code>flex-start</code></label>
+                            <label for="align-self-center"><code>center</code></label>
+                            <label for="align-self-stretch"><code>stretch</code></label>
+                            <label for="align-self-flex-end"><code>flex-end</code></label>
+                            <label for="align-self-baseline"><code>baseline</code></label>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+            <div id="flexbox-example">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div id="flexbox-example-child"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <p>Every third box has a different <code>line-height</code> giving it a different baseline than the others.</p>
         </section>
     </main>
 </body>
