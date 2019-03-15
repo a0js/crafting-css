@@ -219,7 +219,6 @@ div table tbody tr td {
 
 .specificity-buttons {
     display: flex;
-    font-size: 0.6rem;
     flex-direction: column;
     align-items: center;
     padding:1vw;

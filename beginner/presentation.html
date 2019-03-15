@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="box-model.css">
     <link rel="stylesheet" type="text/css" href="specificity.css">
     <link rel="stylesheet" type="text/css" href="flexbox.css">
+    <link rel="stylesheet" type="text/css" href="centering.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
@@ -21,6 +22,10 @@
     <s id="s4"></s>
     <s id="s5"></s>
     <s id="s6"></s>
+    <s id="s7"></s>
+    <s id="s8"></s>
+    <s id="s9"></s>
+    <s id="s10"></s>
 
     <nav>
         <a href="#s1" data-tooltip="crafting with CSS"></a>
@@ -29,6 +34,10 @@
         <a href="#s4" data-tooltip="the box model"></a>
         <a href="#s5" data-tooltip="cascading rules: specificity"></a>
         <a href="#s6" data-tooltip="flexbox"></a>
+        <a href="#s7" data-tooltip="position"></a>
+        <a href="#s8" data-tooltip="centering things"></a>
+        <a href="#s9" data-tooltip="z-index"></a>
+        <a href="#s10" data-tooltip="resources"></a>
     </nav>
 
     <div class="prevNext">
@@ -49,6 +58,18 @@
         </div>
         <div>
             <a href="#s5"></a><a href="#s7"></a>
+        </div>
+        <div>
+            <a href="#s6"></a><a href="#s8"></a>
+        </div>
+        <div>
+            <a href="#s7"></a><a href="#s9"></a>
+        </div>
+        <div>
+            <a href="#s8"></a><a href="#s10"></a>
+        </div>
+        <div>
+            <a href="#s9"></a><a href=""></a>
         </div>
     </div>
 
@@ -454,7 +475,7 @@
                     </ul>
                 </div>
                 <div class="specificity-buttons">
-                    <h3>Click a rule to see it's score!</h3>
+                    <h4>Click a rule to see it's score!</h4>
                     <label for="specificity-example-1"><pre><code>div table tbody tr td {
     background-color: green;
 }</code></pre></label>
@@ -603,7 +624,7 @@ background-color: black;"&gt;</code></pre></label>
                 <div></div>
                 <div></div>
                 <div></div>
-                <div id="flexbox-example-child"></div>
+                <div class="flexbox-example-child"></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -619,7 +640,7 @@ background-color: black;"&gt;</code></pre></label>
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
+                <div class="flexbox-example-child"></div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -627,6 +648,111 @@ background-color: black;"&gt;</code></pre></label>
                 <div></div>
             </div>
             <p>Every third box has a different <code>line-height</code> giving it a different baseline than the others.</p>
+        </section>
+        <section id="position">
+            <h2>position</h2>
+            <div class="slide-content">
+                <dl>
+                    <dt><code>static</code></dt>
+                    <dd><em>Default</em> Places document in normal document flow</dd>
+                    <dt><code>relative</code></dt>
+                    <dd>Allows for changes in position <em>relative</em> to the static position. Static position is left in document flow.</dd>
+                    <dt><code>absolute</code></dt>
+                    <dd>Allows for changes in position relative to the closest ancestor not statically positioned. Static position is removed from the flow.</dd>
+                    <dt><code>fixed</code></dt>
+                    <dd>Allows for changes in position relative to the viewport. Static position is removed from the flow.</dd>
+                    <dt><code>sticky</code></dt>
+                    <dd>Hybrid of static and fixed. Static position until the element is at the top of the viewport, then fixed to the top of the viewport when scrolled past. Static position is left in document flow.</dd>
+                </dl>
+            </div>
+        </section>
+        <section id="centering">
+            <h2>centering things</h2>
+            <div class="slide-content">
+                <section>
+                    <h3>with flexbox</h3>
+                    <pre><code><mark data-syntax="css-selector">parent</mark> {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}</code></pre>
+                    <span>or</span>
+                    <pre><code>parent {
+    display: flex;
+}
+
+child {
+    align-self: center;
+    justify-self: center;
+}</code></pre>
+                </section>
+                <section>
+                    <h3>with position</h3>
+                    <pre><code>parent {
+    position: relative;
+}
+
+child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}</code></pre>
+                </section>
+                <section>
+                    <h3>with text-align</h3>
+                    <pre><code>child {
+    white-space: nowrap;
+    height: 30px;
+    line-height: 30px;
+    /* heights must match */
+    text-align: center;
+}</code></pre>
+                    <p>Note: Only works on single line text in block element of defined height</p>
+                </section>
+            </div>
+            <p><code>vertical-align: middle;</code> only works on specific elements. You will only really use it on table cells.</p>
+        </section>
+        <section id="z-index">
+            <h2>z-index</h2>
+            <div class="slide-content">
+                <ul>
+                    <li>Z-Index represents an arbitrary depth level repsective to the current stacking context</li>
+                    <li>A stacking context is created by several elements
+                        <ul>
+                            <li><code>&lt;html&gt;</code> or the root stacking context</li>
+                            <li>Basically any element with <code>z-index: <em>&lt;integer&gt;</em></code></li>
+                            <li>Element with <code>position: fixed | sticky</code></li>
+                            <li>Element with <code>transform:</code> or <code>filter:</code> set</li>
+                        </ul>
+                    </li>
+                    <li>Any child of one of these elements will only compare z-index with it's siblings</li>
+                    <li>The heirarchy of stacking contexts is a subset of the DOM tree
+                        <ul>
+                            <li>An element's stacking context is determined by the closest ancestor with a stacking context</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="resources">
+            <h2>resources</h2>
+            <div class="slide-content">
+                <ul>
+                    <li>Highly recommend <a href="https://developer.mozilla.org/">MDN</a> for reference on specific elements and properties
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Element Reference</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model">The Box Model</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance">Cascade and Inheritance</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">The Stacking Context</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks Flexbox Guide</a> is fantastic</li>
+                    <li>Check out <a href="https://codepen.io/rokobuljan/pen/XXzqKQ">Roko C. Buljan's Pen</a> to see how to do a pure css slideshow</li>
+                    <li>Check out <a href="https://favicon.io">Favicon.io</a> to easily generate favicons and icons</li>
+                    <li>Check out <a href="https://cssgradient.io/">CSSGradient.io</a> to help generate gradients for css rules</li>
+                </ul>
+            </div>
         </section>
     </main>
 </body>

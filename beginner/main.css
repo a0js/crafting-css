@@ -10,8 +10,8 @@ section, main, nav, body, h1, h2, h3, h4, h5, h6 {
 html, body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    font-size:2vw;
-    line-height: 1.2em;
+    font-size:1.7vw;
+    line-height: 1.2;
 }
 
 tt, code, kbd, samp {
@@ -177,9 +177,20 @@ main > section > div.slide-content > section {
     flex: 1;
 }
 
-main > section > div.slide-content > section > ul {
-    background: rgba(0,0,0,0.3);
+main > section > div.slide-content ul,
+main > section > div.slide-content dl,
+main > section > div.slide-content ol {
+    background: rgba(255,255,255,0.3);
+    padding:1vw;
 }
+
+main > section > div.slide-content ul,
+main > section > div.slide-content ol {
+    background: rgba(255,255,255,0.3);
+    padding-left: 3vw;
+}
+
+
 
 main > section.slide-layout-title > h1{
     position: absolute;
@@ -187,7 +198,6 @@ main > section.slide-layout-title > h1{
     left:50%;
     transform: translate(-50%, -50%);
     font-size:2rem;
-    line-height: 2rem;
     display:flex;
     align-items: center;
 }
@@ -216,8 +226,20 @@ code {
     padding:3px 6px;
     display: inline-block;
     border-radius: 3px;
-    line-height: 1rem;
     font-weight: lighter;
+    font-size:0.8em;
+}
+
+pre > code {
+    display:block;
+}
+
+code mark {
+    background-color: transparent;
+}
+
+code mark[data-syntax="css-selector"] {
+    color: rgb(218, 148, 42);
 }
 
 a {
@@ -231,7 +253,6 @@ ul {
 
 li {
     margin: 0.5rem 0px;
-    line-height: 1.4em;
 }
 
 .center {
@@ -245,12 +266,18 @@ li {
 /* ALL: */
 s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 /* ACTIVE */
-#s1:target ~ nav > *:nth-child(1) {background: rgba(255, 255, 255,   1);}
-#s2:target ~ nav > *:nth-child(2) {background: rgba(255, 255, 255,   1);}
-#s3:target ~ nav > *:nth-child(3) {background: rgba(255, 255, 255,   1);}
-#s4:target ~ nav > *:nth-child(4) {background: rgba(255, 255, 255,   1);}
-#s5:target ~ nav > *:nth-child(5) {background: rgba(255, 255, 255,   1);}
-#s6:target ~ nav > *:nth-child(6) {background: rgba(255, 255, 255,   1);}
+#s1:target ~ nav > *:nth-child(1),
+#s2:target ~ nav > *:nth-child(2),
+#s3:target ~ nav > *:nth-child(3),
+#s4:target ~ nav > *:nth-child(4),
+#s5:target ~ nav > *:nth-child(5),
+#s6:target ~ nav > *:nth-child(6),
+#s7:target ~ nav > *:nth-child(7),
+#s8:target ~ nav > *:nth-child(8),
+#s9:target ~ nav > *:nth-child(9),
+#s10:target ~ nav > *:nth-child(10) {
+    background: rgba(255, 255, 255, 1);
+}
 
 /* SLIDER ANIMATION POSITIONS */
 
@@ -260,14 +287,25 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s4:target ~ main {transform: translateX(-300%);}
 #s5:target ~ main {transform: translateX(-400%);}
 #s6:target ~ main {transform: translateX(-500%);}
+#s7:target ~ main {transform: translateX(-600%);}
+#s8:target ~ main {transform: translateX(-700%);}
+#s9:target ~ main {transform: translateX(-800%);}
+#s10:target ~ main {transform: translateX(-900%);}
 
 /* PREV/NEXT CONTAINERS VISIBILITY */
 /* ALL: */
 s:target ~ .prevNext > * {visibility: hidden;}
 /* ACTIVE: */
-#s1:target ~ .prevNext > *:nth-child(1) {visibility: visible;}
-#s2:target ~ .prevNext > *:nth-child(2) {visibility: visible;}
-#s3:target ~ .prevNext > *:nth-child(3) {visibility: visible;}
-#s4:target ~ .prevNext > *:nth-child(4) {visibility: visible;}
-#s5:target ~ .prevNext > *:nth-child(5) {visibility: visible;}
-#s6:target ~ .prevNext > *:nth-child(6) {visibility: visible;}
+#s1:target ~ .prevNext > *:nth-child(1),
+#s2:target ~ .prevNext > *:nth-child(2),
+#s3:target ~ .prevNext > *:nth-child(3),
+#s4:target ~ .prevNext > *:nth-child(4),
+#s5:target ~ .prevNext > *:nth-child(5),
+#s6:target ~ .prevNext > *:nth-child(6),
+#s7:target ~ .prevNext > *:nth-child(7),
+#s8:target ~ .prevNext > *:nth-child(8),
+#s9:target ~ .prevNext > *:nth-child(9),
+#s10:target ~ .prevNext > *:nth-child(10) {
+    visibility: visible;
+}
+

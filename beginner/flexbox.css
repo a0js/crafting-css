@@ -6,14 +6,7 @@ dt code {
     font-weight: normal;
 }
 
-dl {
-    font-size:0.8rem;
-    line-height: 1.3rem;
-}
 
-dd {
-    font-size:0.6rem;
-}
 #flexbox-example {
     height: 20vw;
     display: flex;
@@ -31,7 +24,7 @@ dd {
     font-family: 'Roboto Mono';
 }
 
-div#flexbox-example-child {
+#flexbox-example .flexbox-example-child {
     background-color: rgba(248, 88, 235, 0.6);
 }
 
@@ -141,46 +134,46 @@ div#flexbox-example-child {
 #align-content-space-between:checked ~ div#flexbox-example {
     align-content: space-between;
 }
-#order-zero:checked ~ div#flexbox-example #flexbox-example-child {
+#order-zero:checked ~ div#flexbox-example .flexbox-example-child {
     order: 0;
 }
-#order-negative-one:checked ~ div#flexbox-example #flexbox-example-child {
+#order-negative-one:checked ~ div#flexbox-example .flexbox-example-child {
     order: -1;
 }
-#order-two:checked ~ div#flexbox-example #flexbox-example-child {
+#order-two:checked ~ div#flexbox-example .flexbox-example-child {
     order: 2;
 }
-#order-ninety-nine:checked ~ div#flexbox-example #flexbox-example-child {
+#order-ninety-nine:checked ~ div#flexbox-example .flexbox-example-child {
     order: 99;
 }
-#flex-zero-one-auto:checked ~ div#flexbox-example #flexbox-example-child {
+#flex-zero-one-auto:checked ~ div#flexbox-example .flexbox-example-child {
     flex: 0 1 auto;
 }
-#flex-none:checked ~ div#flexbox-example #flexbox-example-child {
+#flex-none:checked ~ div#flexbox-example .flexbox-example-child {
     flex: none;
 }
-#flex-one:checked ~ div#flexbox-example #flexbox-example-child {
+#flex-one:checked ~ div#flexbox-example .flexbox-example-child {
     flex: 1;
 }
-#flex-zero-one-twenty-percent:checked ~ div#flexbox-example #flexbox-example-child {
+#flex-zero-one-twenty-percent:checked ~ div#flexbox-example .flexbox-example-child {
     flex: 0 1 20%;
 }
-#align-self-auto:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-auto:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: auto;
 }
-#align-self-flex-start:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-flex-start:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: flex-start;
 }
-#align-self-center:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-center:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: center;
 }
-#align-self-stretch:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-stretch:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: stretch;
 }
-#align-self-flex-end:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-flex-end:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: flex-end;
 }
-#align-self-baseline:checked ~ div#flexbox-example #flexbox-example-child {
+#align-self-baseline:checked ~ div#flexbox-example .flexbox-example-child {
     align-self: baseline;
 }
 #flex-wrap-nowrap:checked ~ div#flexbox-example {
