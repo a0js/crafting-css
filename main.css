@@ -309,3 +309,13 @@ s:target ~ .prevNext > * {visibility: hidden;}
     visibility: visible;
 }
 
+a#github-link {
+    background-image: url('GitHub-Mark-Light-32px.png');
+    background-size: contain;
+    background-color: transparent;
+    opacity:0.5;
+}
+
+a#github-link:hover {
+    opacity:1;
+}
