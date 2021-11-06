@@ -31,8 +31,6 @@
     <s id="s9"></s>
     <s id="s10"></s>
     <s id="s11"></s>
-    <s id="s12"></s>
-    <s id="s13"></s>
 
     <nav>
         <a href="#s1" data-tooltip="crafting with CSS"></a>
@@ -40,56 +38,48 @@
         <a href="#s3" data-tooltip="HTML primer: additional tags"></a>
         <a href="#s4" data-tooltip="the box model"></a>
         <a href="#s5" data-tooltip="cascading rules: specificity"></a>
-        <a href="#s6" data-tooltip="float &amp; clear"></a>
-        <a href="#s7" data-tooltip="position"></a>
-        <a href="#s8" data-tooltip="z-index"></a>
-        <a href="#s9" data-tooltip="flexbox"></a>
-        <a href="#s10" data-tooltip="the grid"></a>
-        <a href="#s11" data-tooltip="centering things"></a>
-        <a href="#s12" data-tooltip="CSS variables"></a>
-        <a href="#s13" data-tooltip="resources"></a>
+        <a href="#s6" data-tooltip="position"></a>
+        <a href="#s7" data-tooltip="z-index"></a>
+        <a href="#s8" data-tooltip="flexbox"></a>
+        <a href="#s9" data-tooltip="centering things"></a>
+        <a href="#s10" data-tooltip="CSS variables"></a>
+        <a href="#s11" data-tooltip="resources"></a>
         <a href="https://github.com/a0js/crafting-css" data-tooltip="View Source" id="github-link"></a>
     </nav>
 
     <div class="prevNext">
         <div>
-            <a href=""></a><a href="#s2"></a>
+            <a href="">➲</a><a href="#s2">➲</a>
         </div>
         <div>
-            <a href="#s1"></a><a href="#s3"></a>
+            <a href="#s1">➲</a><a href="#s3">➲</a>
         </div>
         <div>
-            <a href="#s2"></a><a href="#s4"></a>
+            <a href="#s2">➲</a><a href="#s4">➲</a>
         </div>
         <div>
-            <a href="#s3"></a><a href="#s5"></a>
+            <a href="#s3">➲</a><a href="#s5">➲</a>
         </div>
         <div>
-            <a href="#s4"></a><a href="#s6"></a>
+            <a href="#s4">➲</a><a href="#s6">➲</a>
         </div>
         <div>
-            <a href="#s5"></a><a href="#s7"></a>
+            <a href="#s5">➲</a><a href="#s7">➲</a>
         </div>
         <div>
-            <a href="#s6"></a><a href="#s8"></a>
+            <a href="#s6">➲</a><a href="#s8">➲</a>
         </div>
         <div>
-            <a href="#s7"></a><a href="#s9"></a>
+            <a href="#s7">➲</a><a href="#s9">➲</a>
         </div>
         <div>
-            <a href="#s8"></a><a href="#s10"></a>
+            <a href="#s8">➲</a><a href="#s10">➲</a>
         </div>
         <div>
-            <a href="#s9"></a><a href="#s11"></a>
+            <a href="#s9">➲</a><a href="#s11">➲</a>
         </div>
         <div>
-            <a href="#s10"></a><a href="#s12"></a>
-        </div>
-        <div>
-            <a href="#s11"></a><a href="#s13"></a>
-        </div>
-        <div>
-            <a href="#s12"></a><a href=""></a>
+            <a href="#s10">➲</a><a href="#s11">➲</a>
         </div>
     </div>
 
@@ -512,12 +502,6 @@ background-color: black;"&gt;</code></pre></label>
             </div>
             <p>Check out <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#Specificity">MDN</a> for more information about specificity.</p>
         </section>
-        <section id="float-clear">
-            <h2>float &amp; clear</h2>
-            <div class="slide-content">
-
-            </div>
-        </section>
         <section id="position">
             <h2>position</h2>
             <div class="slide-content">
@@ -714,18 +698,12 @@ background-color: black;"&gt;</code></pre></label>
             </div>
             <p>Every third box has a different <code>line-height</code> giving it a different baseline than the others.</p>
         </section>
-        <section id="the-grid">
-            <h2>the grid</h2>
-            <div class="slide-content">
-
-            </div>
-        </section>
         <section id="centering">
             <h2>centering things</h2>
             <div class="slide-content">
                 <section>
                     <h3>with flexbox</h3>
-                    <pre><code><mark data-syntax="css-selector">parent</mark> {
+                    <pre><code>parent {
     display:flex;
     align-items: center;
     justify-content: center;
@@ -769,11 +747,66 @@ child {
         </section>
         <section id="css-variables">
             <h2>CSS variables</h2>
+            <div class="slide-content">
             <section>
+                    <h3>Themes on Root</h3>
+                    <p>Select A Theme:</p>
                 <label for="theme-default"><code>default</code></label>
                 <label for="theme-dark"><code>dark mode</code></label>
                 <label for="theme-gameboy"><code>gameboy</code></label>
+                    <section>
+                        <label for="theme-default">
+                            <pre><code>:root {
+    --code-background-color: hsla(0, 0%, 0%, 0.8);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
+    --code-text-font: 'Roboto Mono', monospace;
+    ...
+}</code></pre>
+                        </label>
+                    </section>
+                    <section>
+                        <label for="theme-dark">
+                            <pre><code>:root[data-theme="dark"] {
+    --code-background-color: hsla(0, 0%, 0%, 0.8);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
+    ...
+}</code></pre>
+
+                        </label>
+                    </section>
+                    <section>
+                        <label for="theme-gameboy">
+                            <pre><code>:root[data-theme="gameboy"] {
+    --code-background-color: hsl(159, 33%, 31%);
+    --code-text-color: hsl(200, 60%, 8%);
+    --code-text-font: 'VT323', monospace;
+    ...
+}</code></pre>
+
+                        </label>
+                    </section>
+                </section>
+                <section>
+                    <h3>Applying the Theme</h3>
+                    <pre><code>code {
+    background-color: var(--code-background-color);
+    color: var(--code-text-color);
+    font-family: var(--code-text-font);
+}</code></pre>
+                    <h3>Rules to Remember</h3>
+                    <ul>
+                        <li><code>:root</code> refers to the root of the document, in HTML, the <code>&lt;html&gt;</code> element</li>
+                        <li>Setting a variable below the root will only be available on the element selected and its decendants</li>
+                        <li>A CSS variable can contain an entire property value, or a partial value, e.g.:
+                            <pre><code>--default-size: 5px;
+main {
+    border: var(--default-size) solid #000;
+}
+                            </code></pre>
+                        </li>
+                    </ul>
             </section>
+            </div>
         </section>
         <section id="resources">
             <h2>resources</h2>
@@ -782,9 +815,10 @@ child {
                     <li>Highly recommend <a href="https://developer.mozilla.org/">MDN</a> for reference on specific elements and properties
                         <ul>
                             <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Element Reference</a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model">The Box Model</a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance">Cascade and Inheritance</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model">The Box Model</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">Cascade and Inheritance</a></li>
                             <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">The Stacking Context</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">Grid Layout</a></li>
                         </ul>
                     </li>
                     <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks Flexbox Guide</a> is fantastic</li>

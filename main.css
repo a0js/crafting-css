@@ -21,10 +21,14 @@ section, main, nav, body, h1, h2, h3, h4, h5, h6 {
     --slide-odd-background: linear-gradient(156deg, hsl(22, 84%, 54%) 0%, hsl(304, 86%, 35%) 40%, hsl(336, 100%, 50%) 100%);
     --slide-even-background: linear-gradient(156deg, hsl(275, 84%, 54%) 0%, hsl(219, 88%, 34%) 40%, hsl(187, 100%, 50%) 100%);
     --main-text-color: hsl(0, 0%, 0%);
-    --code-text-color: hsla(0, 0%, 100%, 0.9);
-    --code-background-color: hsla(0, 0%, 0%, 0.8);
     --main-text-font: 'Montserrat', sans-serif;
+    --code-background-color: hsla(0, 0%, 0%, 0.8);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
     --code-text-font: 'Roboto Mono', monospace;
+    --nav-color: hsla(0, 0%, 100%, 0.5);
+    --nav-color-active: hsl(0, 0%, 100%);
+    --highlight: rgb(0, 98, 209);
+    --highlight-text: hsla(0, 0%, 100%, 0.9);
 }
 
 input[name=theme-selector] {
@@ -35,29 +39,34 @@ input[name=theme-selector] {
 #theme-default:checked ~ main label[for="theme-default"] code,
 #theme-dark:checked ~ main label[for="theme-dark"] code,
 #theme-gameboy:checked ~ main label[for="theme-gameboy"] code {
-    background-color:rgb(0, 98, 209);
+    background-color:var(--highlight);
+    color: var(--highlight-text);
 }
 
 #theme-dark:checked ~ main, #theme-dark:checked ~ nav {
     --slide-odd-background-fallback: hsl(22, 60%, 24%);
     --slide-even-background-fallback: hsl(276, 34%, 23%);
-    --slide-odd-background: linear-gradient(156deg, hsl(22, 60%, 24%) 0%, hsl(304, 67%, 14%) 40%, hsl(336, 90%, 12%) 100%);
-    --slide-even-background: linear-gradient(156deg, hsl(276, 34%, 23%) 0%, hsl(253, 70%, 26%) 35%, hsl(189, 79%, 13%) 100%);
+    --slide-odd-background: linear-gradient(156deg, hsl(19, 42%, 7%) 0%, hsl(19, 42%, 7%) 26%, hsl(16, 67%, 36%) 29%, hsl(19, 42%, 7%) 33%, hsla(329, 92%, 20%, 0.58) 100%),
+        linear-gradient(140deg, hsl(19, 42%, 7%) 0%, hsl(19, 42%, 7%) 48%, hsl(298, 67%, 36%) 53%, hsl(19, 42%, 7%) 56%, hsl(329, 92%, 20%) 100%);
+    --slide-even-background: linear-gradient(156deg, hsl(275, 66%, 6%) 0%, hsl(275, 66%, 6%) 26%, hsl(275, 58%, 27%) 29%, hsl(275, 66%, 6%) 33%, hsla(188, 83%, 11%, 0.58) 100%),
+        linear-gradient(140deg, hsl(275, 66%, 6%) 0%, hsl(275, 66%, 6%) 48%, hsl(219, 75%, 25%) 53%, hsl(275, 66%, 6%) 56%, hsl(188, 83%, 11%) 100%);
     --main-text-color: hsla(0, 0%, 100%, 0.9);
-    --code-text-color: hsla(0, 0%, 100%, 0.9);
     --code-background-color: hsla(0, 0%, 0%, 0.8);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
 }
 
 #theme-gameboy:checked ~ main, #theme-gameboy:checked ~ nav {
-    --slide-odd-background-fallback: #b0bba9;
-    --slide-even-background-fallback: #88c070;
-    --slide-odd-background: #b0bba9;
-    --slide-even-background: #88c070;
-    --main-text-color: #081820;
-    --code-text-color: #081820;
-    --code-background-color: #346856;
+    --slide-odd-background-fallback: hsl(97, 12%, 70%);
+    --slide-even-background-fallback: hsl(102, 39%, 60%);
+    --slide-odd-background: hsl(97, 12%, 70%);
+    --slide-even-background: hsl(102, 39%, 60%);
+    --main-text-color: hsl(200, 60%, 8%);
     --main-text-font: 'atlantis_internationalregular',monospace;
+    --code-background-color: hsl(159, 33%, 31%);
+    --code-text-color: hsl(200, 60%, 8%);
     --code-text-font: 'VT323', monospace;
+    --highlight: hsl(200, 60%, 8%);
+    --highlight-text: hsl(97, 12%, 70%);
 }
 
 
@@ -174,22 +183,22 @@ nav > a:hover {
 
 .prevNext > div > a {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    font-size: 3em;
     line-height: 60px;
-    opacity: 0.7;
     text-align: center;
     transition: 0.3s;
-    left:0;
+
     z-index: 2;
-    background-image: url(arrow.png);
-    background-size: cover;
-    transform: rotate(180deg);
-    filter: invert(1);
+    /* background-image: url(arrow.png);
+    background-size: cover; */
+    transform: scaleX(-1);
+    color:var(--nav-color);
+    /* filter: invert(1); */
 }
 
 .prevNext > div > a:hover {
     opacity: 1;
+    color:var(--nav-color-active);
 }
 
 .prevNext > div > a[href=""] {
@@ -284,6 +293,14 @@ code {
     font-size:0.8em;
 }
 
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;  
+}
+
 pre > code {
     display:block;
 }
@@ -314,7 +331,7 @@ li {
 
 /* NAVIGATION BUTTONS */
 /* ALL: */
-s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
+s:target ~ nav > * {background: var(--nav-color);}
 /* ACTIVE */
 #s1:target ~ nav > *:nth-child(1),
 #s2:target ~ nav > *:nth-child(2),
@@ -326,11 +343,8 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s8:target ~ nav > *:nth-child(8),
 #s9:target ~ nav > *:nth-child(9),
 #s10:target ~ nav > *:nth-child(10),
-#s11:target ~ nav > *:nth-child(11),
-#s12:target ~ nav > *:nth-child(12),
-#s13:target ~ nav > *:nth-child(13),
-#s14:target ~ nav > *:nth-child(14) {
-    background: rgba(255, 255, 255, 1);
+#s11:target ~ nav > *:nth-child(11) {
+    background: var(--nav-color-active);
 }
 
 /* SLIDER ANIMATION POSITIONS */
@@ -346,9 +360,6 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s9:target ~ main {transform: translateX(-800%);}
 #s10:target ~ main {transform: translateX(-900%);}
 #s11:target ~ main {transform: translateX(-1000%);}
-#s12:target ~ main {transform: translateX(-1100%);}
-#s13:target ~ main {transform: translateX(-1200%);}
-#s14:target ~ main {transform: translateX(-1300%);}
 
 /* PREV/NEXT CONTAINERS VISIBILITY */
 /* ALL: */
@@ -364,10 +375,7 @@ s:target ~ .prevNext > * {visibility: hidden;}
 #s8:target ~ .prevNext > *:nth-child(8),
 #s9:target ~ .prevNext > *:nth-child(9),
 #s10:target ~ .prevNext > *:nth-child(10),
-#s11:target ~ .prevNext > *:nth-child(11),
-#s12:target ~ .prevNext > *:nth-child(12),
-#s13:target ~ .prevNext > *:nth-child(13),
-#s14:target ~ .prevNext > *:nth-child(14) {
+#s11:target ~ .prevNext > *:nth-child(11) {
     visibility: visible;
 }
 
