@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,300');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@font-face {
+    font-family: 'atlantis_internationalregular';
+    src: url('atlantisinternational-jen0-webfont.woff2') format('woff2'),
+         url('atlantisinternational-jen0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 section, main, nav, body, h1, h2, h3, h4, h5, h6 {
     padding:0;
@@ -7,15 +15,60 @@ section, main, nav, body, h1, h2, h3, h4, h5, h6 {
     box-sizing:border-box;
 }
 
+:root {
+    --slide-odd-background-fallback: hsl(22, 84%, 54%);
+    --slide-even-background-fallback: hsl(275, 84%, 54%);
+    --slide-odd-background: linear-gradient(156deg, hsl(22, 84%, 54%) 0%, hsl(304, 86%, 35%) 40%, hsl(336, 100%, 50%) 100%);
+    --slide-even-background: linear-gradient(156deg, hsl(275, 84%, 54%) 0%, hsl(219, 88%, 34%) 40%, hsl(187, 100%, 50%) 100%);
+    --main-text-color: hsl(0, 0%, 0%);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
+    --code-background-color: hsla(0, 0%, 0%, 0.8);
+    --main-text-font: 'Montserrat', sans-serif;
+    --code-text-font: 'Roboto Mono', monospace;
+}
+
+input[name=theme-selector] {
+    visibility: hidden;
+    position: absolute;
+}
+
+#theme-default:checked ~ main label[for="theme-default"] code,
+#theme-dark:checked ~ main label[for="theme-dark"] code,
+#theme-gameboy:checked ~ main label[for="theme-gameboy"] code {
+    background-color:rgb(0, 98, 209);
+}
+
+#theme-dark:checked ~ main, #theme-dark:checked ~ nav {
+    --slide-odd-background-fallback: hsl(22, 60%, 24%);
+    --slide-even-background-fallback: hsl(276, 34%, 23%);
+    --slide-odd-background: linear-gradient(156deg, hsl(22, 60%, 24%) 0%, hsl(304, 67%, 14%) 40%, hsl(336, 90%, 12%) 100%);
+    --slide-even-background: linear-gradient(156deg, hsl(276, 34%, 23%) 0%, hsl(253, 70%, 26%) 35%, hsl(189, 79%, 13%) 100%);
+    --main-text-color: hsla(0, 0%, 100%, 0.9);
+    --code-text-color: hsla(0, 0%, 100%, 0.9);
+    --code-background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+#theme-gameboy:checked ~ main, #theme-gameboy:checked ~ nav {
+    --slide-odd-background-fallback: #b0bba9;
+    --slide-even-background-fallback: #88c070;
+    --slide-odd-background: #b0bba9;
+    --slide-even-background: #88c070;
+    --main-text-color: #081820;
+    --code-text-color: #081820;
+    --code-background-color: #346856;
+    --main-text-font: 'atlantis_internationalregular',monospace;
+    --code-text-font: 'VT323', monospace;
+}
+
+
 html, body {
     height: 100%;
-    font-family: 'Montserrat', sans-serif;
     font-size:1.7vw;
     line-height: 1.2;
 }
 
 tt, code, kbd, samp {
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--code-text-font);
 }
 
 body {
@@ -28,6 +81,8 @@ main {
     white-space: nowrap;
     font-size: 0;
     transition: 0.8s;
+    font-family: var(--main-text-font);
+    color: var(--main-text-color);
 }
 
 nav {
@@ -38,6 +93,7 @@ nav {
     text-align: center;
     z-index: 1;
     font-size: 15px;
+    font-family: var(--main-text-font);
     display:flex;
     align-items: flex-end;
     justify-content: center;
@@ -52,9 +108,7 @@ nav > a {
     line-height: 30px;
     text-decoration: none;
     text-align: center;
-    background: rgba(255, 255, 255, 1);
     transition: 0.3s;
-    color: #000;
     margin: 5px;
     pointer-events: auto;
     border-radius: 3px;
@@ -76,7 +130,7 @@ nav > a:hover {
     position: relative;
 }
 
-*[data-tooltip]:hover::before {
+*[data-tooltip]:hover::before, *[data-tooltip]:focus::before {
     content: attr(data-tooltip);
     display: inline-block;
     position: absolute;
@@ -93,7 +147,7 @@ nav > a:hover {
     text-transform: capitalize;
 }
 
-*[data-tooltip]:hover::after {
+*[data-tooltip]:hover::after, *[data-tooltip]:focus::after {
 	content: '';
 	position: absolute;
 	bottom: calc(100% + 6px);
@@ -151,8 +205,8 @@ nav > a:hover {
 main > section {
     width: 100%;
     height: 100%;
-    background: rgb(236,111,41);
-    background: linear-gradient(156deg, rgba(236,111,41,1) 0%, rgba(167,13,157,1) 40%, rgba(255,0,101,1) 100%);
+    background: var(--slide-odd-background-fallback);
+    background: var(--slide-odd-background);
     padding: 20px;
     display: inline-block;
     position: relative;
@@ -163,8 +217,8 @@ main > section {
 }
 
 main > section:nth-child(2n) {
-    background: rgb(154,41,236);
-    background: linear-gradient(156deg, rgba(154,41,236,1) 0%, rgba(10,63,163,1) 40%, rgba(0,226,255,1) 100%);
+    background: var(--slide-even-background-fallback);
+    background: var(--slide-even-background);
 }
 
 main > section > div.slide-content {
@@ -221,8 +275,8 @@ main > section > h1  small {
 }
 
 code {
-    background-color: rgba(0,0,0,0.8);
-    color: rgba(255, 255, 255, 0.9);
+    background-color: var(--code-background-color);
+    color: var(--code-text-color);
     padding:3px 6px;
     display: inline-block;
     border-radius: 3px;
@@ -236,10 +290,6 @@ pre > code {
 
 code mark {
     background-color: transparent;
-}
-
-code mark[data-syntax="css-selector"] {
-    color: rgb(218, 148, 42);
 }
 
 a {
@@ -275,7 +325,11 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s7:target ~ nav > *:nth-child(7),
 #s8:target ~ nav > *:nth-child(8),
 #s9:target ~ nav > *:nth-child(9),
-#s10:target ~ nav > *:nth-child(10) {
+#s10:target ~ nav > *:nth-child(10),
+#s11:target ~ nav > *:nth-child(11),
+#s12:target ~ nav > *:nth-child(12),
+#s13:target ~ nav > *:nth-child(13),
+#s14:target ~ nav > *:nth-child(14) {
     background: rgba(255, 255, 255, 1);
 }
 
@@ -291,6 +345,10 @@ s:target ~ nav > * {background: rgba(255, 255, 255, 0.5);}
 #s8:target ~ main {transform: translateX(-700%);}
 #s9:target ~ main {transform: translateX(-800%);}
 #s10:target ~ main {transform: translateX(-900%);}
+#s11:target ~ main {transform: translateX(-1000%);}
+#s12:target ~ main {transform: translateX(-1100%);}
+#s13:target ~ main {transform: translateX(-1200%);}
+#s14:target ~ main {transform: translateX(-1300%);}
 
 /* PREV/NEXT CONTAINERS VISIBILITY */
 /* ALL: */
@@ -305,7 +363,11 @@ s:target ~ .prevNext > * {visibility: hidden;}
 #s7:target ~ .prevNext > *:nth-child(7),
 #s8:target ~ .prevNext > *:nth-child(8),
 #s9:target ~ .prevNext > *:nth-child(9),
-#s10:target ~ .prevNext > *:nth-child(10) {
+#s10:target ~ .prevNext > *:nth-child(10),
+#s11:target ~ .prevNext > *:nth-child(11),
+#s12:target ~ .prevNext > *:nth-child(12),
+#s13:target ~ .prevNext > *:nth-child(13),
+#s14:target ~ .prevNext > *:nth-child(14) {
     visibility: visible;
 }
 

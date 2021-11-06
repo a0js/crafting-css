@@ -16,6 +16,10 @@
 </head>
 
 <body>
+    <input type="radio" name="theme-selector" id="theme-default" checked>
+    <input type="radio" name="theme-selector" id="theme-dark">
+    <input type="radio" name="theme-selector" id="theme-gameboy">
+
     <s id="s1"></s>
     <s id="s2"></s>
     <s id="s3"></s>
@@ -26,6 +30,9 @@
     <s id="s8"></s>
     <s id="s9"></s>
     <s id="s10"></s>
+    <s id="s11"></s>
+    <s id="s12"></s>
+    <s id="s13"></s>
 
     <nav>
         <a href="#s1" data-tooltip="crafting with CSS"></a>
@@ -33,11 +40,14 @@
         <a href="#s3" data-tooltip="HTML primer: additional tags"></a>
         <a href="#s4" data-tooltip="the box model"></a>
         <a href="#s5" data-tooltip="cascading rules: specificity"></a>
-        <a href="#s6" data-tooltip="flexbox"></a>
+        <a href="#s6" data-tooltip="float &amp; clear"></a>
         <a href="#s7" data-tooltip="position"></a>
-        <a href="#s8" data-tooltip="centering things"></a>
-        <a href="#s9" data-tooltip="z-index"></a>
-        <a href="#s10" data-tooltip="resources"></a>
+        <a href="#s8" data-tooltip="z-index"></a>
+        <a href="#s9" data-tooltip="flexbox"></a>
+        <a href="#s10" data-tooltip="the grid"></a>
+        <a href="#s11" data-tooltip="centering things"></a>
+        <a href="#s12" data-tooltip="CSS variables"></a>
+        <a href="#s13" data-tooltip="resources"></a>
         <a href="https://github.com/a0js/crafting-css" data-tooltip="View Source" id="github-link"></a>
     </nav>
 
@@ -70,7 +80,16 @@
             <a href="#s8"></a><a href="#s10"></a>
         </div>
         <div>
-            <a href="#s9"></a><a href=""></a>
+            <a href="#s9"></a><a href="#s11"></a>
+        </div>
+        <div>
+            <a href="#s10"></a><a href="#s12"></a>
+        </div>
+        <div>
+            <a href="#s11"></a><a href="#s13"></a>
+        </div>
+        <div>
+            <a href="#s12"></a><a href=""></a>
         </div>
     </div>
 
@@ -493,6 +512,51 @@ background-color: black;"&gt;</code></pre></label>
             </div>
             <p>Check out <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#Specificity">MDN</a> for more information about specificity.</p>
         </section>
+        <section id="float-clear">
+            <h2>float &amp; clear</h2>
+            <div class="slide-content">
+
+            </div>
+        </section>
+        <section id="position">
+            <h2>position</h2>
+            <div class="slide-content">
+                <dl>
+                    <dt><code>static</code></dt>
+                    <dd><em>Default</em> Places document in normal document flow</dd>
+                    <dt><code>relative</code></dt>
+                    <dd>Allows for changes in position <em>relative</em> to the static position. Static position is left in document flow.</dd>
+                    <dt><code>absolute</code></dt>
+                    <dd>Allows for changes in position relative to the closest ancestor not statically positioned. Static position is removed from the flow.</dd>
+                    <dt><code>fixed</code></dt>
+                    <dd>Allows for changes in position relative to the viewport. Static position is removed from the flow.</dd>
+                    <dt><code>sticky</code></dt>
+                    <dd>Hybrid of static and fixed. Static position until the element is at the top of the viewport, then fixed to the top of the viewport when scrolled past. Static position is left in document flow.</dd>
+                </dl>
+            </div>
+        </section>
+        <section id="z-index">
+            <h2>z-index</h2>
+            <div class="slide-content">
+                <ul>
+                    <li>Z-Index represents an arbitrary depth level repsective to the current stacking context</li>
+                    <li>A stacking context is created by several elements
+                        <ul>
+                            <li><code>&lt;html&gt;</code> or the root stacking context</li>
+                            <li>Basically any element with <code>z-index: <em>&lt;integer&gt;</em></code></li>
+                            <li>Element with <code>position: fixed | sticky</code></li>
+                            <li>Element with <code>transform:</code> or <code>filter:</code> set</li>
+                        </ul>
+                    </li>
+                    <li>Any child of one of these elements will only compare z-index with it's siblings</li>
+                    <li>The heirarchy of stacking contexts is a subset of the DOM tree
+                        <ul>
+                            <li>An element's stacking context is determined by the closest ancestor with a stacking context</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <section id="flexbox">
             <h2>flexbox</h2>
             <input type="radio" name="align-items-example" id="align-items-stretch" checked>
@@ -650,21 +714,10 @@ background-color: black;"&gt;</code></pre></label>
             </div>
             <p>Every third box has a different <code>line-height</code> giving it a different baseline than the others.</p>
         </section>
-        <section id="position">
-            <h2>position</h2>
+        <section id="the-grid">
+            <h2>the grid</h2>
             <div class="slide-content">
-                <dl>
-                    <dt><code>static</code></dt>
-                    <dd><em>Default</em> Places document in normal document flow</dd>
-                    <dt><code>relative</code></dt>
-                    <dd>Allows for changes in position <em>relative</em> to the static position. Static position is left in document flow.</dd>
-                    <dt><code>absolute</code></dt>
-                    <dd>Allows for changes in position relative to the closest ancestor not statically positioned. Static position is removed from the flow.</dd>
-                    <dt><code>fixed</code></dt>
-                    <dd>Allows for changes in position relative to the viewport. Static position is removed from the flow.</dd>
-                    <dt><code>sticky</code></dt>
-                    <dd>Hybrid of static and fixed. Static position until the element is at the top of the viewport, then fixed to the top of the viewport when scrolled past. Static position is left in document flow.</dd>
-                </dl>
+
             </div>
         </section>
         <section id="centering">
@@ -714,27 +767,13 @@ child {
             </div>
             <p><code>vertical-align: middle;</code> only works on specific elements. You will only really use it on table cells.</p>
         </section>
-        <section id="z-index">
-            <h2>z-index</h2>
-            <div class="slide-content">
-                <ul>
-                    <li>Z-Index represents an arbitrary depth level repsective to the current stacking context</li>
-                    <li>A stacking context is created by several elements
-                        <ul>
-                            <li><code>&lt;html&gt;</code> or the root stacking context</li>
-                            <li>Basically any element with <code>z-index: <em>&lt;integer&gt;</em></code></li>
-                            <li>Element with <code>position: fixed | sticky</code></li>
-                            <li>Element with <code>transform:</code> or <code>filter:</code> set</li>
-                        </ul>
-                    </li>
-                    <li>Any child of one of these elements will only compare z-index with it's siblings</li>
-                    <li>The heirarchy of stacking contexts is a subset of the DOM tree
-                        <ul>
-                            <li>An element's stacking context is determined by the closest ancestor with a stacking context</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <section id="css-variables">
+            <h2>CSS variables</h2>
+            <section>
+                <label for="theme-default"><code>default</code></label>
+                <label for="theme-dark"><code>dark mode</code></label>
+                <label for="theme-gameboy"><code>gameboy</code></label>
+            </section>
         </section>
         <section id="resources">
             <h2>resources</h2>
